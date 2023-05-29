@@ -20,7 +20,6 @@ const playAgainBtn = document.querySelector('.play-again');
 
 // Equations
 let questionAmount = 0;
-
 let equationsArray = [];
 
 // Game Page
@@ -33,12 +32,20 @@ const wrongFormat = [];
 
 // Scroll
 
+// Get Random Number up to a max number
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+
 // Create Correct/Incorrect Random Equations
 function createEquations() {
   // Randomly choose how many correct equations there should be
-  // const correctEquations = 
+   const correctEquations = getRandomInt(questionAmount);
+   console.log('correct equations:', correctEquations);
   // Set amount of wrong equations
-  // const wrongEquations = 
+   const wrongEquations = questionAmount - correctEquations;
+   console.log('wrong equations:', wrongEquations);
   // Loop through, multiply random numbers up to 9, push to array
   // for (let i = 0; i < correctEquations; i++) {
   //   firstNumber = 
@@ -84,12 +91,33 @@ function createEquations() {
 //   itemContainer.appendChild(bottomSpacer);
 // }
 
+// Displays 3, 2, 1, GO!
+function countdownStart() {
+  countdown.textContent = '3';
+  setTimeout(() => {
+    countdown.textContent = '2';
+  }, 1000);
+  setTimeout(() => {
+    countdown.textContent = '1';
+  }, 2000);
+  setTimeout(() => {
+    countdown.textContent = 'GO!';
+  }, 3000);
+}
+
+// Navigate from Splash Page to Countdown Page
+function showCountdown() {
+  countdownPage.hidden = false;
+  splashPage.hidden = true;
+  countdownStart();
+  createEquations();
+}
+
 
 // Navigate from Splash page to countdown page
 function showCountdown() {
   countdownPage.hidden = false;
   splashPage.hidden = true;
-
 }
 
 // Get the value from selected radio button
@@ -103,14 +131,14 @@ function getRadioValue() {
   return radioValue;
 }
 
-
-
-
 // Form that decides amount of questions
 function selectQuestionAmount(e) {
   e.preventDefault();
   questionAmount = getRadioValue();
   console.log('question amount:', questionAmount);
+ if (questionAmount) {
+  showCountdown();
+ }
 }
 
 startForm.addEventListener('click', () => {
