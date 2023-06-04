@@ -259,7 +259,7 @@ button:active {
 /* Media Query: Laptop */
 @media screen and (max-width: 1800px) {
   .game-container {
-    margin-top: 50px;
+    margin-top: 1px;
   }
 
   .selected-item {
