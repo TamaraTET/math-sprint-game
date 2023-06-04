@@ -59,7 +59,7 @@ function scoresToDOM() {
 
 // Stop Timer, Process Results, go to Score Page
 function checkTime() {
-  console.log(timePlayed);
+  // console.log(timePlayed);
   if(playerGuessArray.length == questionAmount) {
     console.log('player guess array', playerGuessArray);
     clearInterval(timer);
@@ -91,7 +91,7 @@ function startTimer() {
   penaltyTime = 0;
   finalTime = 0;
   timer = setInterval(addTime, 100);
-  gamePage.removeEventListerner('click', startTimer);
+  gamePage.removeEventListener('click', startTimer);
 }
 
 // Scroll, Store user selection in the playerGuessArray
