@@ -11,6 +11,6 @@ The game also a "play again" button which has a click function that allows users
 Technologies used:
 HTML, CSS and JavaScript 
 
-The website is hosted here: <a href ""
+The website is hosted here: <a href ="https://tamaratet.github.io/math-sprint-game/" target ="_blank">here</a>
 
 
